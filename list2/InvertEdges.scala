@@ -29,7 +29,7 @@ object InvertEdges {
     }
 
 
-    def main(args: Array[String]) {
+    def main(args: Array[String]): Unit = {
         val result = reduce(input)
 
         println(result)

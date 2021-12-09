@@ -58,7 +58,7 @@ class TFIDF {
                 val idf = Math.log(_wordCounts.size.toDouble / _wordCounts.count(doc => doc._2.contains(word._1)).toDouble)
 
                 if (document._2.contains(word._1)) {
-                    tfidf(document._1) += (word._1 -> (word._2.toDouble / document._2(word._1).toDouble) * idf)
+                    tfidf(document._1) += (word._1 -> document._2(word._1).toDouble / document._2.map(_._2).sum.toDouble * idf)
                 } else {
                     tfidf(document._1) += (word._1 -> 0.0)
                 }
